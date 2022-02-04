@@ -1,0 +1,17 @@
+html, main{
+    margin-top: 40px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(180,192,218,1) 0%, rgba(210,242,255,1) 2%, rgba(84,215,242,1) 36%, rgba(255,255,165,1) 100%, rgba(234,234,148,1) 100%);
+}
+
+.bodr{
+    border: 3px solid rgb(86, 199, 219);
+    background-color: rgb(86, 199, 219)
+}
+
+.container{
+    background-color: white;
+    border-radius: 21px;
+    
+}
+

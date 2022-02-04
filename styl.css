@@ -1,0 +1,10 @@
+
+.bodr{
+    border: 3px solid rgb(86, 199, 219);
+    background-color: rgb(86, 199, 219)
+}
+.total{
+    gap: 7px;
+    align-items: center;
+}
+
