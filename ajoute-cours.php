@@ -34,8 +34,8 @@
                             // INSERT //
                             $title = $_POST['title'];
                             $prof  = $_POST['prof'];
-                            $bill  = $_POST['date'];
-                            $query = "INSERT INTO courses (title, prof, date) values ('$title','$prof',' $date')";
+                            $date  = $_POST['date'];
+                            $query = "INSERT INTO courses (title, prof, date) values ('$title','$prof','$date')";
                             $res=mysqli_query($conn,$query);
                             if($res)
                                 header("location:cours.php");

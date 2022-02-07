@@ -11,6 +11,7 @@
     <title>Page-1</title>
 </head>
 <body>
+  <?php include('connect.php'); ?>
     <div class=" container-fluid" > 
        <div class="row flex-nowrap">
               <?php 
@@ -28,7 +29,14 @@
                           <div class="card-body " style="background-color: #d8f5ff;">
                             <i class="fal fa-graduation-cap fs-3" style="color: #74C1ED;"></i>
                              <a class="nav-link "style="color: black;" href="#">Students</a>
-                            <p class="card-text fw-bold text-end fs-3 mt-3 ms-5">243</p>
+                            <p class="card-text fw-bold text-end fs-3 mt-3 ms-5">
+                              <?php 
+                                $stud= "SELECT * From students" ;
+                                $query= mysqli_query($conn,$stud);
+                                $res =mysqli_num_rows($query);
+                                echo $res ;
+                              ?>
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -37,7 +45,14 @@
                           <div class="card-body " style="background-color: #fff4fe;">
                             <i class="fal fa-bookmark fs-3 " style="color: #EE95C5;" ></i>  
                               <a class="nav-link mt-0 ml-2 av-item"style="color: black;" href="#">Course</a>
-                            <p class="card-text fw-bold mt-3  text-end fs-3" >  13</p>
+                            <p class="card-text fw-bold mt-3  text-end fs-3" >  
+                            <?php 
+                                $stud= "SELECT * From courses" ;
+                                $query= mysqli_query($conn,$stud);
+                                $res =mysqli_num_rows($query);
+                                echo $res ;
+                              ?>
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -46,7 +61,9 @@
                           <div class="card-body " style="background-color:  #ffffd7;">
                             <i class="fal fa-usd-square fs-3" style="color:  #00C1FE;"></i>
                               <a class="nav-link mt-0 ml-2 av-item"style="color: black;" href="#">Payment</a>
-                              <p class="card-text fw-bold mt-3  text-end fs-3 text-nowrap">DHS556,00</p>
+                              <p class="card-text fw-bold mt-3  text-end fs-3 text-nowrap">DHS
+                                <?php  include 'sum_payment.php';?>
+                              </p>
                           </div>
                         </div>
                       </div>
@@ -54,8 +71,8 @@
                         <div class="card">
                           <div class="card-body " style="background: linear-gradient(110.42deg, #00C1FE 18.27%, #FAFFC1 91.84%);">
                             <i class="far fa-user fs-3"style="color:  #FFFFFF;"></i>
-                             <a class="nav-link text-white "href="#" >Users</a>
-                            <p class="card-text fw-bold mt-3 mx-5 text-end fs-3" >3</p>
+                             <a class="nav-link text-white "href="#">Users</a>
+                            <p class="card-text fw-bold mt-3 mx-5 text-end fs-3">3</p>
                           </div>
                         </div>
                       </div>

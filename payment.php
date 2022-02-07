@@ -52,8 +52,8 @@
                                 <td class="text-nowrap">'.$p["name"].'</td>
                                 <td class="text-nowrap">'.$p["payment"].'</td>
                                 <td class="text-nowrap">'.$p["bill"].'</td>
-                                <td class="text-nowrap">'.$p["amount"].'</td>
-                                <td class="text-nowrap">'.$p["balance"].'</td>
+                                <td class="text-nowrap">'.$p["amount"].' DHS</td>
+                                <td class="text-nowrap">'.$p["balance"].' DHS</td>
                                 <td class="text-nowrap">'.$p["date"].'</td>
                                 <td class="text-nowrap"><a class="fal fa-eye fs-6 text-info"></a></td>
                                 

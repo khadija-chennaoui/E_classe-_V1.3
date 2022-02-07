@@ -5,8 +5,6 @@
     $res = mysqli_query($conn, $sql);
     $updat = mysqli_fetch_assoc($res);  
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,15 +31,13 @@
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Enroll Number</label>
-            <input type="numbe" class="form-control" value="<?php echo $updat['enroll_number'] ; ?>" name="enroll_number" required>
+            <input type="numbe" class="form-control" value="<?php echo $updat['enroll_number'] ; ?>" name="enroll_number"required>
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Date of admission</label>
             <input type="date" class="form-control" value="<?php echo $updat['date_of_admission'] ; ?>" name="date_of_admission" required>
         </div>               
-        <button type="submit" class="btn btn-primary" id="botn" name="submit" placeholde="save">
-            Submit     
-        </button>
+        <button type="submit" class="btn btn-primary" id="botn" name="submit" placeholde="save">Submit</button>
         <br>  
     </form>
     <?php

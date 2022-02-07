@@ -19,26 +19,24 @@
             <form class="container mt-5" method="POST">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Title</label>
-                    <input type="text" class="form-control" value="<?php echo $updat['title'] ; ?>" name="title" required>
+                    <input type="text" class="form-control" value="<?php echo $updat['title'];?>" name="title" required>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"  >Prof</label>
-                    <input type="text" class="form-control" value="<?php echo $updat['prof'] ; ?>"  name="prof" required>
+                    <label for="exampleInputEmail1" class="form-label">Prof</label>
+                    <input type="text" class="form-control" value="<?php echo $updat['prof'];?>"  name="prof" required>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Date</label>
-                    <input type="date" class="form-control"value="<?php echo $updat['date'] ; ?>" name="date" required>
+                    <input type="date" class="form-control" value="<?php echo $updat['date'];?>" name="date" required>
                 </div>
-                <button type="submit" class="btn btn-primary" id="botn" name="submit" placeholde="save">
-                   Submit     
-              </button>    
+                <button type="submit" class="btn btn-primary" id="botn" name="submit" placeholde="save">Submit</button>    
             </form>
     <?php
      if(isset($_POST['submit'])){
         $title = $_POST['title']; 
         $prof  = $_POST['prof'];
         $date  = $_POST['date'];
-        $query = "UPDATE courses set title='$title', prof='$prof',date='$date'  WHERE 'id'='$id'";
+        $query = "UPDATE courses set   title='$title', prof='$prof',date='$date'  WHERE id='$id'";
         $res=mysqli_query($conn,$query);
         echo '
             <script>

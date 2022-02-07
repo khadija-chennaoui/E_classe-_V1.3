@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -60,11 +60,11 @@
                     <td><a class="far fa-trash fs-5" style="color:#00C1FE;" href=delete.php?id='.$id.'></a></td> 
                 </tr>';
               }
-         ?>
-    </table>
-            </div>
-        </div>
-    </div>
+          ?>
+        </table>
+       </div>
+      </div>
+     </div>
     </div>
 
 
