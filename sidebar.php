@@ -9,7 +9,11 @@
                          </div></span>
                         <div  class="d-grid ">
                             <img src="https://picsum.photos/150.jpg" class="rounded-circle  ms-3  mb-2 img-fluid d-none text-center  d-md-inline "  alt="...">
-                            <h2 class="text-center  d-none  d-md-inline  text-black text-nowrap">Admin name</h2>
+                            <h2 class="text-center  d-none  d-md-inline  text-black text-nowrap">
+                                <?php
+                                    echo $_SESSION['name'];
+                                ?>
+                            </h2>
                             <p class="text-center  img-fluid  d-none  d-md-inline fs-4 text-nowrap" style="color: darkturquoise;">Admin</p>
                          </div>
                     </div>
@@ -50,7 +54,7 @@
                                 <i class="fs-4 bi-people"><i class="far fa-sliders-v-square"></i></i><span class="ms-1 d-none  d-md-inline  ms-3">Settings</span> </a>
                         </li>
                         <li class='mt-4 mx-auto'>
-                            <a href="Bootstrap.php" class="nav-link px-0 align-middle text-black">
+                            <a href="Bootstrap_deconection.php" class="nav-link px-0 align-middle text-black">
                                  <span class=" d-none  d-md-inline"> Logout </span> 
                                  <i class="fs-4 bi-people"><i class="fal fa-sign-out-alt"></i></i></a>
                         </li>
