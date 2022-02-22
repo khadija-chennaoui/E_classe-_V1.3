@@ -1,6 +1,6 @@
 <?php
 include('connect.php');
-$query = "select sum(amount) as 'total' from payment_details";
+$query = "SELECT SUM(amount) AS 'total' FROM payment_details";
 $res = mysqli_query($conn, $query);
 $data = mysqli_fetch_assoc($res);
 echo $data['total'];

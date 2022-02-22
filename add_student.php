@@ -46,7 +46,6 @@
             </form>
   <?php
     }elseif($_SERVER['REQUEST_METHOD']=='POST'){
-               
                 print_r($_POST);
                 // INSERT //
                 $Name = $_POST['name'];
@@ -60,8 +59,6 @@
                header("location:student.php");
                 else 
                     echo 'student not added !';
-
-         
     }
   ?>
 </body>

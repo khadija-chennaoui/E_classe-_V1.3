@@ -1,3 +1,8 @@
+<?php
+  if (isset($_COOKIE['email']) && isset($_COOKIE['password'])){
+      header("location:indexhtml.php");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,15 +29,17 @@
       <?php if (isset($_GET['incorrect'])) { ?>
         <p class="text-dark border border-2 border-danger pt-1 pb-2 text-center bg-warning bar"><?php echo $_GET['incorrect']; ?></p>
       <?php } ?>
-      
-
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email">
+        <input type="email" class="form-control" name="email" id="email" value="<?php if (isset($_COOKIE["email"])) echo $_COOKIE["email"] ?>" placeholder="Enter your email">
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" name="password" id="pass" placeholder="Enter your passeword">
+        <input type="password" class="form-control" name="password" id="pass" value="<?php if (isset($_COOKIE["password"])) echo $_COOKIE["password"] ?>" placeholder="Enter your password">
+      </div>
+      <div>
+        <input type="checkbox" name="re_me" class="mt-2">
+        <label class="mb-3" for="re_me">Remember me</label>
       </div>
       <div class="d-grid ">
         <button class="btn btn-info" name="submit" style="color:white" type="submit">SIGN IN</button>
@@ -43,8 +50,7 @@
     </form>
     <?php
     include('connect.php');
-    if (isset($_POST['submit'])) {
-      $session_duration_minutes=60*24;
+    if(isset($_POST['submit'])){
       $email = $_POST['email'];
       $password = $_POST['password'];
       $query = "SELECT * FROM comptes WHERE email= '" . $email . "' AND password='" . $password . "'";
@@ -55,14 +61,31 @@
         $_SESSION['name'] = $compte['name'];
         $_SESSION['email'] = $compte['email'];
         $_SESSION['password'] = $compte['password'];
-        setcookie('email' , $_SESSION['email'] , time() + $session_duration_minutes*60 , null , null , false , true);
-        setcookie('password' , $_SESSION['password'] , time()+  $session_duration_minutes*60 , null , null , false , true);
+        if(isset($_POST['re_me'])){
+          setcookie('email', $_SESSION['email'] , time() + 30, NULL, NULL, FALSE, TRUE);
+          setcookie('password', $_SESSION['password'], time() + 30, NULL, NULL, FALSE, TRUE);
+        }else{
+          setcookie('email', $_SESSION['email'] , time() + 30, NULL, NULL, FALSE, TRUE);
+          setcookie('password', $_SESSION['password'], time() + 30, NULL, NULL, FALSE, TRUE);
+        }
+        // if (!empty($_POST["re_me"])) {
+        //   setcookie("email", $_POST["email"], time() + (310));
+        //   setcookie("password", $_POST["password"], time() + (310));
+        // } else {
+        //   if (isset($_COOKIE["email"])) {
+        //     setcookie("email", "");
+        //   }
+        //   if (isset($_COOKIE["password"])) {
+        //     setcookie("password", "");
+        //   }
+        // }
         header("location:indexhtml.php");
       } else {
         header("location:Bootstrap.php?incorrect=email or passeword is inccorect!");
       }
-    }  
+    }
     ?>
   </main>
 </body>
+
 </html>

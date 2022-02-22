@@ -74,7 +74,14 @@
               <div class="card-body " style="background: linear-gradient(110.42deg, #00C1FE 18.27%, #FAFFC1 91.84%);">
                 <i class="far fa-user fs-3" style="color:  #FFFFFF;"></i>
                 <a class="nav-link text-white " href="#">Users</a>
-                <p class="card-text fw-bold mt-3 mx-5 text-end fs-3">3</p>
+                <p class="card-text fw-bold mt-3 mx-5 text-end fs-3">
+                  <?php
+                    $stud = "SELECT * From comptes";
+                    $query = mysqli_query($conn, $stud);
+                    $res = mysqli_num_rows($query);
+                    echo $res;
+                  ?>
+                </p>
               </div>
             </div>
           </div>
