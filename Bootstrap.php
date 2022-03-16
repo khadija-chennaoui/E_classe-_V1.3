@@ -15,14 +15,14 @@
 </head>
 <body>
   <main class="my-5">
-    <form method="POST" class="container" style="max-width:480px;margin:auto;" class="shadow-lg p-4 mb-5 mt-5 bg-body rounded ">
+    <form method="POST" style="max-width:480px;margin:auto;" class="container shadow-lg p-4 mb-5 mt-5 bg-body rounded ">
       <div class="total align-items-center d-flex ps-4">
         <span class="pt-4 pb-2 my-4 mx-2 mb-3 bodr"> </span>
         <h1 class=" mb-3 py-4 my-4 fw-bold">E-classe</h1>
       </div>
       <div class="text-center">
         <div>
-          <h2 class="h3 mb-4 font-weight-normal">SIGN IN</h2>
+          <h2 class="h3 mb-3 font-weight-normal">SIGN IN</h2>
           <p>Enter your credentials to access your account</p>
         </div>
       </div>
@@ -44,8 +44,12 @@
       <div class="d-grid ">
         <button class="btn btn-info" name="submit" style="color:white" type="submit">SIGN IN</button>
       </div>
-      <div class="text-center mt-4 pb-5">
+      <div class="text-center mt-4 pb-4">
         <span>Forgot your password?</span><a href="#" class="stretched-link text-info" style="position: relative;"> Reset Password</a>
+      </div>
+      <tr>--------------------------------Where----------------------------</tr>
+      <div class="text-center mt-4 ">
+      <a href="creation.php"><button type="button" class="btn btn-outline-success mb-3">Create new account</button></a>
       </div>
     </form>
     <?php
@@ -53,9 +57,13 @@
     if(isset($_POST['submit'])){
       $email = $_POST['email'];
       $password = $_POST['password'];
-      $query = "SELECT * FROM comptes WHERE email= '" . $email . "' AND password='" . $password . "'";
+      $query = "SELECT * FROM signup WHERE email= '" . $email . "' AND password='" . $password . "'";
       $res = mysqli_query($conn, $query);
       $compte = mysqli_fetch_assoc($res);
+      if (mysqli_num_rows($res)==1) {
+        
+        
+      }
       if ($compte) {
         session_start();
         $_SESSION['name'] = $compte['name'];
