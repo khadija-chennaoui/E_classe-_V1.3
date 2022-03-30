@@ -5,4 +5,3 @@
     setcookie('password' , $_SESSION['password'] , time() - 20 , NULL , NULL , FALSE , TRUE);
     session_destroy();
     header('location:Bootstrap.php');
-?>

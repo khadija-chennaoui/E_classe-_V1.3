@@ -1,6 +1,7 @@
-<?php include('session.php');?>
+<?php include('session.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,6 +14,41 @@
 </head>
 
 <body>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">ADD NEW COURSES </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h2 class="text-center mt-5 text-primary">ADD NEW COURSES </h2>
+          <form class="container mt-5" method="POST" action="./ajoute-cours.php">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" action="ajoute-cours.php " class="form-label">Title</label>
+              <input type="text" class="form-control" name="title" required>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Prof</label>
+              <input type="text" class="form-control" name="prof" required>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Date</label>
+              <input type="date" class="form-control" name="date" required>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" name='save' value="save" class="btn btn-primary">Save changes</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
   <div class=" container-fluid bg-light">
     <div class="row flex-nowrap">
       <?php
@@ -29,9 +65,22 @@
             <h3 class="ms-4">Cours List</h3>
             <div class="p-2 bd-highlight d-flex align-items-center">
               <i class="fal fa-sort me-3 fs-5 text-info"></i>
-              <a type="button" class="btn btn-info btn-sm text-white" href="ajoute-cours.php">Modifie</a>
+              <!-- <a type="button" class="btn btn-info btn-sm text-white" href="ajoute-cours.php">ADD NEW COURS</a> -->
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                ADD NEW COURS
+              </button>
+              <!-- Modal -->
+
             </div>
           </div>
+          <?php
+          if (isset($_GET['added'])) {
+            echo '<div class="alert alert-primary" role="alert">
+            Course was added!
+          </div>';
+          }
+          ?>
           <div class="table-responsive px-4">
             <table class="table table-borderless align-middle" style="border-collapse:separate;border-spacing:0 15px;">
               <thead>
@@ -63,9 +112,11 @@
         </div>
       </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

@@ -11,7 +11,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <title>Page-1</title>
 </head>
-
 <body>
   <?php include('connect.php'); ?>
   <div class=" container-fluid">
@@ -76,7 +75,7 @@
                 <a class="nav-link text-white " href="#">Users</a>
                 <p class="card-text fw-bold mt-3 mx-5 text-end fs-3">
                   <?php
-                    $stud = "SELECT * From comptes";
+                    $stud = "SELECT * From signup";
                     $query = mysqli_query($conn, $stud);
                     $res = mysqli_num_rows($query);
                     echo $res;
